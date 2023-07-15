@@ -48,7 +48,7 @@ projectsBtn.forEach((projectBtn) => {
     } else if (e.currentTarget.id === "modal-button") {
       modalPage.style.display = "flex";
       body.style.backgroundColor = "var(--white)";
-    } else if (e.currentTarget.id === "questions-button") {
+    } else if (e.currentTarget.id === "question-button") {
       questionsPage.style.display = "flex";
       body.style.backgroundColor = "var(--white)";
     } else if (e.currentTarget.id === "menu-button") {
@@ -59,7 +59,7 @@ projectsBtn.forEach((projectBtn) => {
       body.style.backgroundColor = "var(--white)";
     } else if (e.currentTarget.id === "scroll-button") {
       scrollPage.style.display = "flex";
-      headerPosition = scrollHeader.getBoundingClientRect().height * 2.3;
+
       body.style.backgroundColor = "var(--white)";
     } else if (e.currentTarget.id === "tabs-button") {
       tabsPage.style.display = "grid";
@@ -492,7 +492,7 @@ const weekdays = [
   "Friday",
   "Saturday",
 ];
-const givenItem = document.querySelector("#given-item");
+const givenItem = document.querySelector("#giveaway-date");
 const leftTime = document.querySelectorAll(".left-time-format");
 const date = new Date();
 const getYear = date.getFullYear();
@@ -674,14 +674,6 @@ switchBtn.addEventListener("click", () => {
 });
 //scroll
 const scrollHeader = document.querySelector("#scroll-header");
-
-document.addEventListener("scroll", () => {
-  if (window.scrollY > 186) {
-    scrollHeader.classList.add("scrolled");
-  } else if (window.scrollY < 110) {
-    scrollHeader.classList.remove("scrolled");
-  }
-});
 const scrollAbout = document.querySelector("#scroll-about");
 const scrollHome = document.querySelector("#scroll-home");
 const scrollServices = document.querySelector("#scroll-services");
@@ -691,50 +683,32 @@ const scrollHomeBtn = document.querySelector("#scroll-home-button");
 const scrollServicesBtn = document.querySelector("#scroll-services-button");
 const scrollToursBtn = document.querySelector("#scroll-tours-button");
 const backTop = document.querySelector("#back-top");
-let headerPosition;
-let position;
 
+document.addEventListener("scroll", () => {
+  if (window.scrollY > 186) {
+    scrollHeader.classList.add("scrolled");
+  } else if (window.scrollY < 110) {
+    scrollHeader.classList.remove("scrolled");
+  }
+});
+// if (scrollHeader.classList.contains("scrolled")) {
 backTop.addEventListener("click", () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  scrollHome.scrollIntoView({ behavior: "smooth" });
 });
 scrollHomeBtn.addEventListener("click", () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  scrollHome.scrollIntoView({ behavior: "smooth" });
 });
 scrollAboutBtn.addEventListener("click", () => {
-  position = scrollAbout.getBoundingClientRect().height;
-
-  window.scroll({
-    top: position - headerPosition,
-    left: 0,
-    behavior: "smooth",
-  });
+  scrollAbout.scrollIntoView({ behavior: "smooth" });
 });
-scrollServicesBtn.addEventListener("click", () => {
-  position = scrollServices.getBoundingClientRect().height * 2;
 
-  window.scroll({
-    top: position - headerPosition,
-    left: 0,
-    behavior: "smooth",
-  });
+scrollServicesBtn.addEventListener("click", () => {
+  scrollServices.scrollIntoView({ behavior: "smooth" });
 });
 scrollToursBtn.addEventListener("click", () => {
-  position = scrollTours.getBoundingClientRect().height * 3;
-
-  window.scroll({
-    top: position - headerPosition,
-    left: 0,
-    behavior: "smooth",
-  });
+  scrollTours.scrollIntoView({ behavior: "smooth" });
 });
+// }
 // lorem ipsum
 const text = [
   `Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop. Cupcake lemon drops bear claw gummies. Jelly bear claw gummi bears lollipop cotton candy gummi bears chocolate bar cake cookie. Cupcake muffin danish muffin cookie gummies. Jelly beans tiramisu pudding. Toffee soufflé chocolate cake pastry brownie. Oat cake halvah sweet roll cotton candy croissant lollipop. Macaroon tiramisu chocolate bar candy candy carrot cake jelly sweet. Gummies croissant macaroon dessert. Chocolate cake dragée pie.`,
